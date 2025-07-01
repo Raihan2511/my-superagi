@@ -9,6 +9,7 @@ from superagi.models.user import User
 from superagi.models.api_key import ApiKey
 from typing import Optional
 from sqlalchemy import or_
+from fastapi import Request
 
 
 def check_auth(Authorize: AuthJWT = Depends()):
@@ -44,7 +45,7 @@ def get_user_organisation(Authorize: AuthJWT = Depends(check_auth)):
     return organisation
 
 
-def get_current_user(Authorize: AuthJWT = Depends(check_auth), request: Request = Depends()):
+def get_current_user(request: Request, Authorize: AuthJWT = Depends(check_auth)):
     env = get_config("ENV", "DEV")
 
     if env == "DEV":
