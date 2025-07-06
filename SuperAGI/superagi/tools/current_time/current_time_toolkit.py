@@ -1,6 +1,6 @@
 from typing import List
 from superagi.tools.base_tool import BaseToolkit
-from .current_time_tool import CurrentTimeTool
+from superagi.tools.current_time.current_time_tool import CurrentTimeTool
 
 class CurrentTimeToolkit(BaseToolkit):
     name = "Current Time Toolkit"
