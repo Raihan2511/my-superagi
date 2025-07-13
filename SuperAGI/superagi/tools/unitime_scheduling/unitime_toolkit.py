@@ -30,6 +30,7 @@
 from abc import ABC
 from typing import List
 from superagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from superagi.tools.unitime_scheduling.unitime_workflow_tool import UnitimeWorkflowTool
 from superagi.tools.unitime_scheduling.generate_xml_tool import GenerateXMLTool
 from superagi.tools.unitime_scheduling.validate_xml_tool import ValidateXMLTool
 from superagi.tools.unitime_scheduling.import_xml_tool import ImportXMLTool
@@ -40,7 +41,7 @@ class UnitimeToolkit(BaseToolkit, ABC):
     description: str = "Toolkit for generating, validating, and importing UniTime-compatible XML schedules"
 
     def get_tools(self) -> List[BaseTool]:
-        return [GenerateXMLTool(), ValidateXMLTool(), ImportXMLTool()]
+        return [UnitimeWorkflowTool(), GenerateXMLTool(), ValidateXMLTool(), ImportXMLTool()]
 
     def get_env_keys(self) -> List[ToolConfiguration]:
         return [
