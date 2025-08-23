@@ -1,3 +1,4 @@
+# read_email.py
 import email
 import json
 from typing import Type
@@ -66,7 +67,8 @@ class ReadEmailTool(BaseTool):
         if not messages:
             return f"There are no Email in your folder {imap_folder}"
         else:
-            return messages
+            # return messages
+            return json.dumps(messages, indent=2)
 
     def _process_message(self, email_msg, response):
         if isinstance(response, tuple):
