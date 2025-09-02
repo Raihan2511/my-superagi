@@ -3,6 +3,7 @@ services:
   backend:
     volumes:
       - "./:/app"
+      - "/home/sysadm/Music/HF_MODELS/models--TheBloke--Mistral-7B-Instruct-v0.1-GGUF/snapshots/731a9fc8f06f5f5e2db8a0cf9d256197eb6e05d1/mistral-7b-instruct-v0.1.Q5_K_M.gguf:/app/local_model_path"
     build:
       context: .
       dockerfile: Dockerfile-gpu 
@@ -24,6 +25,8 @@ services:
     volumes:
       - "./:/app"
       - "${EXTERNAL_RESOURCE_DIR:-./workspace}:/app/ext"
+      - "/home/sysadm/Music/HF_MODELS/models--TheBloke--Mistral-7B-Instruct-v0.1-GGUF/snapshots/731a9fc8f06f5f5e2db8a0cf9d256197eb6e05d1/mistral-7b-instruct-v0.1.Q5_K_M.gguf:/app/local_model_path"
+
     build:
       context: .
       dockerfile: Dockerfile-gpu 
